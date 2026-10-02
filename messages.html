@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Messages | SOROUSH ADMIN</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            font-family: "Vazirmatn", sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(124, 58, 237, 0.18),
+                    transparent 35%
+                ),
+                #08080d;
+
+            color: white;
+
+            min-height: 100vh;
+
+            padding: 40px;
+
+        }
+
+        .container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+        }
+
+        .topbar {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 35px;
+
+        }
+
+        .title h1 {
+
+            font-size: 28px;
+
+            margin-bottom: 6px;
+
+        }
+
+        .title p {
+
+            color: #888;
+
+            font-size: 13px;
+
+        }
+
+        .back-btn {
+
+            text-decoration: none;
+
+            color: white;
+
+            padding: 12px 18px;
+
+            border-radius: 14px;
+
+            background: rgba(255,255,255,0.06);
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            transition: .3s;
+
+        }
+
+        .back-btn:hover {
+
+            background: rgba(255,255,255,0.12);
+
+            transform: translateY(-2px);
+
+        }
+
+        .messages {
+
+            display: grid;
+
+            gap: 18px;
+
+        }
+
+        .message-card {
+
+            background: rgba(255,255,255,0.045);
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            border-radius: 22px;
+
+            padding: 24px;
+
+            transition: .3s;
+
+        }
+
+        .message-card:hover {
+
+            transform: translateY(-3px);
+
+            border-color: rgba(167,139,250,.35);
+
+        }
+
+        .message-card.unread {
+
+            border-color: rgba(167,139,250,.45);
+
+            box-shadow:
+                0 0 30px rgba(124,58,237,.08);
+
+        }
+
+        .message-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+        }
+
+        .user-info {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+        }
+
+        .avatar {
+
+            width: 48px;
+
+            height: 48px;
+
+            border-radius: 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #8b5cf6,
+                    #6366f1
+                );
+
+            font-size: 18px;
+
+        }
+
+        .user-info h3 {
+
+            font-size: 15px;
+
+            margin-bottom: 4px;
+
+        }
+
+        .email {
+
+            color: #888;
+
+            font-size: 12px;
+
+        }
+
+        .date {
+
+            color: #777;
+
+            font-size: 11px;
+
+        }
+
+        .message-text {
+
+            margin-top: 20px;
+
+            color: #ddd;
+
+            line-height: 2;
+
+            font-size: 14px;
+
+            background: rgba(0,0,0,.15);
+
+            border-radius: 14px;
+
+            padding: 15px;
+
+        }
+
+        .actions {
+
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 18px;
+
+        }
+
+        .action-btn {
+
+            border: none;
+
+            cursor: pointer;
+
+            padding: 10px 15px;
+
+            border-radius: 12px;
+
+            color: white;
+
+            background: rgba(255,255,255,.07);
+
+            font-family: inherit;
+
+            transition: .25s;
+
+        }
+
+        .action-btn:hover {
+
+            background: rgba(255,255,255,.13);
+
+        }
+
+        .delete-btn:hover {
+
+            background: rgba(239,68,68,.2);
+
+            color: #ff7777;
+
+        }
+
+        .empty {
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+            color: #777;
+
+        }
+
+        .empty i {
+
+            font-size: 50px;
+
+            margin-bottom: 20px;
+
+            opacity: .5;
+
+        }
+
+        .badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 22px;
+
+            height: 22px;
+
+            padding: 0 7px;
+
+            border-radius: 20px;
+
+            background: #8b5cf6;
+
+            font-size: 11px;
+
+            margin-left: 8px;
+
+        }
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 20px;
+            }
+
+            .topbar {
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .message-header {
+                align-items: flex-start;
+            }
+
+            .date {
+                display: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="topbar">
+
+        <div class="title">
+
+            <h1>
+                <i class="fa-solid fa-envelope"></i>
+                پیام‌ها
+                <span class="badge" id="message-count">
+                    0
+                </span>
+            </h1>
+
+            <p>
+                پیام‌های ارسال‌شده توسط کاربران سایت
+            </p>
+
+        </div>
+
+        <a href="admin.html" class="back-btn">
+            <i class="fa-solid fa-arrow-right"></i>
+            بازگشت به پنل
+        </a>
+
+    </div>
+
+
+    <div id="messages-container"
+         class="messages">
+    </div>
+
+</div>
+
+
+<script>
+
+    // ================================
+    // ADMIN CHECK
+    // ================================
+
+    if (
+        sessionStorage.getItem("adminLoggedIn")
+        !== "true"
+    ) {
+
+        window.location.href = "login.html";
+
+    }
+
+
+    // ================================
+    // LOAD MESSAGES
+    // ================================
+
+    function loadMessages() {
+
+        const container =
+            document.getElementById(
+                "messages-container"
+            );
+
+        const count =
+            document.getElementById(
+                "message-count"
+            );
+
+        const messages =
+            JSON.parse(
+                localStorage.getItem(
+                    "siteMessages"
+                ) || "[]"
+            );
+
+
+        // تعداد پیام‌های خوانده نشده
+
+        const unread =
+            messages.filter(
+                message => !message.read
+            ).length;
+
+        count.textContent = unread;
+
+
+        if (messages.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="empty">
+
+                    <i class="fa-regular fa-envelope"></i>
+
+                    <h3>
+                        هنوز پیامی دریافت نکرده‌ای
+                    </h3>
+
+                    <p>
+                        وقتی کاربری از فرم تماس پیام بفرستد،
+                        اینجا نمایش داده می‌شود.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        container.innerHTML = "";
+
+
+        messages.forEach(message => {
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "message-card " +
+                (!message.read ? "unread" : "");
+
+
+            card.innerHTML = `
+
+                <div class="message-header">
+
+                    <div class="user-info">
+
+                        <div class="avatar">
+
+                            <i class="fa-solid fa-user"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                ${escapeHTML(message.name)}
+                            </h3>
+
+                            <div class="email">
+
+                                ${escapeHTML(message.email)}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="date">
+
+                        ${escapeHTML(message.date)}
+
+                    </div>
+
+                </div>
+
+
+                <div class="message-text">
+
+                    ${escapeHTML(message.message)}
+
+                </div>
+
+
+                <div class="actions">
+
+                    <button
+                        class="action-btn"
+                        onclick="markAsRead(${message.id})">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        ${message.read
+                            ? "خوانده شده"
+                            : "علامت به عنوان خوانده‌شده"}
+
+                    </button>
+
+
+                    <button
+                        class="action-btn delete-btn"
+                        onclick="deleteMessage(${message.id})">
+
+                        <i class="fa-solid fa-trash"></i>
+
+                        حذف پیام
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            container.appendChild(card);
+
+        });
+
+    }
+
+
+    // ================================
+    // MARK AS READ
+    // ================================
+
+    function markAsRead(id) {
+
+        const messages =
+            JSON.parse(
+                localStorage.getItem(
+                    "siteMessages"
+                ) || "[]"
+            );
+
+
+        const message =
+            messages.find(
+                item => item.id === id
+            );
+
+
+        if (message) {
+
+            message.read = true;
+
+        }
+
+
+        localStorage.setItem(
+            "siteMessages",
+            JSON.stringify(messages)
+        );
+
+
+        loadMessages();
+
+    }
+
+
+    // ================================
+    // DELETE MESSAGE
+    // ================================
+
+    function deleteMessage(id) {
+
+        if (
+            !confirm(
+                "آیا مطمئنی می‌خواهی این پیام را حذف کنی؟"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        let messages =
+            JSON.parse(
+                localStorage.getItem(
+                    "siteMessages"
+                ) || "[]"
+            );
+
+
+        messages =
+            messages.filter(
+                message => message.id !== id
+            );
+
+
+        localStorage.setItem(
+            "siteMessages",
+            JSON.stringify(messages)
+        );
+
+
+        loadMessages();
+
+    }
+
+
+    // ================================
+    // SECURITY
+    // ================================
+
+    function escapeHTML(text) {
+
+        const div =
+            document.createElement("div");
+
+        div.textContent = text;
+
+        return div.innerHTML;
+
+    }
+
+
+    // ================================
+    // INITIAL LOAD
+    // ================================
+
+    loadMessages();
+
+</script>
+
+</body>
+
+</html>

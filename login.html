@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ورود به پنل مدیریت | SOROUSH</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="login.css">
+
+</head>
+
+
+<body>
+
+
+<div class="login-background">
+
+    <div class="login-glow glow-one"></div>
+
+    <div class="login-glow glow-two"></div>
+
+    <div class="login-grid"></div>
+
+
+    <div class="login-box">
+
+
+        <a href="index.html" class="back-home">
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+            بازگشت به سایت
+
+        </a>
+
+
+
+        <div class="login-icon">
+
+            <i class="fa-solid fa-user-shield"></i>
+
+        </div>
+
+
+
+        <span class="login-label">
+            ADMIN PANEL
+        </span>
+
+
+
+        <h1>
+            ورود به پنل مدیریت
+        </h1>
+
+
+
+        <p>
+            برای ورود، نام کاربری و رمز عبور خود را وارد کنید.
+        </p>
+
+
+
+        <form id="login-form">
+
+
+            <div class="input-group">
+
+                <label for="username">
+                    نام کاربری
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="نام کاربری"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <div class="input-group">
+
+                <label for="password">
+                    رمز عبور
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="رمز عبور"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        id="toggle-password"
+                        class="password-toggle"
+                    >
+
+                        <i class="fa-regular fa-eye"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="login-error"
+                id="login-error"
+            >
+                نام کاربری یا رمز عبور اشتباه است.
+            </div>
+
+
+
+            <button
+                type="submit"
+                class="login-button"
+            >
+
+                <span>
+                    ورود به پنل
+                </span>
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+            </button>
+
+
+        </form>
+
+
+
+        <div class="login-footer">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <span>
+                Secure Admin Access
+            </span>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script src="login.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>پنل مدیریت | SOROUSH</title>
+
+
+    <!-- Google Font -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        "Vazirmatn",
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(139,92,246,.14),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(99,102,241,.10),
+            transparent 30%
+        ),
+
+        #05060b;
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.admin-header {
+
+    min-height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 40px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.025);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.admin-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+}
+
+
+.admin-logo span {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+        rgba(139,92,246,.14);
+
+    border:
+        1px solid
+        rgba(167,139,250,.12);
+
+    color: #a78bfa;
+
+    font-family: monospace;
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.logout-btn {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    border:
+        1px solid
+        rgba(239,68,68,.20);
+
+    border-radius: 11px;
+
+    background:
+        rgba(239,68,68,.07);
+
+    color: #fca5a5;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+}
+
+
+.logout-btn:hover {
+
+    background:
+        rgba(239,68,68,.15);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.admin-content {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding:
+        55px 30px
+        80px;
+
+}
+
+
+/* =========================================================
+   WELCOME
+========================================================= */
+
+.welcome {
+
+    margin-bottom: 40px;
+
+}
+
+
+.welcome span {
+
+    color: #a78bfa;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.welcome h1 {
+
+    margin-top: 10px;
+
+    font-size: 32px;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   ANALYTICS HEADER
+========================================================= */
+
+.analytics-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+
+}
+
+
+.analytics-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.analytics-title i {
+
+    color: #a78bfa;
+
+    font-size: 18px;
+
+}
+
+
+.analytics-title h2 {
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+}
+
+
+.analytics-subtitle {
+
+    color:
+        rgba(255,255,255,.32);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   ANALYTICS GRID
+========================================================= */
+
+.analytics-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================================
+   ANALYTICS CARD
+========================================================= */
+
+.analytics-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 155px;
+
+    padding: 24px;
+
+    border-radius: 21px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.analytics-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(167,139,250,.30);
+
+    box-shadow:
+        0 15px 45px
+        rgba(0,0,0,.20);
+
+}
+
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+.analytics-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 110px;
+
+    height: 110px;
+
+    right: -45px;
+
+    bottom: -50px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(139,92,246,.10);
+
+    filter:
+        blur(28px);
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.analytics-icon {
+
+    width: 43px;
+
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+        rgba(139,92,246,.12);
+
+    color: #a78bfa;
+
+    margin-bottom: 17px;
+
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.analytics-label {
+
+    color:
+        rgba(255,255,255,.48);
+
+    font-size: 11px;
+
+    margin-bottom: 6px;
+
+}
+
+
+/* =========================================================
+   VALUE
+========================================================= */
+
+.analytics-value {
+
+    font-size: 29px;
+
+    line-height: 1.2;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.analytics-description {
+
+    margin-top: 6px;
+
+    color:
+        rgba(255,255,255,.25);
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   LIVE STATUS
+========================================================= */
+
+.live-status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 10px;
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-size: 9px;
+
+}
+
+
+.live-dot {
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #86efac;
+
+    box-shadow:
+        0 0 10px
+        rgba(134,239,172,.7);
+
+}
+
+
+/* =========================================================
+   WEEKLY CARD
+========================================================= */
+
+.weekly-card {
+
+    padding: 25px;
+
+    margin-top: 20px;
+
+    margin-bottom: 45px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+}
+
+
+/* =========================================================
+   WEEKLY TITLE
+========================================================= */
+
+.weekly-title {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+
+}
+
+
+.weekly-title h3 {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 16px;
+
+}
+
+
+.weekly-title h3 i {
+
+    color: #a78bfa;
+
+}
+
+
+.weekly-title span {
+
+    color:
+        rgba(255,255,255,.30);
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   DAYS
+========================================================= */
+
+.days-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.day-item {
+
+    text-align: center;
+
+}
+
+
+.day-name {
+
+    color:
+        rgba(255,255,255,.40);
+
+    font-size: 10px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.day-date {
+
+    color:
+        rgba(255,255,255,.22);
+
+    font-size: 8px;
+
+    margin-bottom: 6px;
+
+}
+
+
+/* =========================================================
+   BAR BOX
+========================================================= */
+
+.day-bar-box {
+
+    height: 115px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    padding:
+        0 10px;
+
+}
+
+
+/* =========================================================
+   BAR
+========================================================= */
+
+.day-bar {
+
+    width: 100%;
+
+    max-width: 38px;
+
+    min-height: 5px;
+
+    border-radius:
+        9px
+        9px
+        4px
+        4px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #a78bfa,
+            #6366f1
+        );
+
+    box-shadow:
+        0 5px 20px
+        rgba(124,58,237,.20);
+
+    transition:
+        height .7s ease;
+
+}
+
+
+/* =========================================================
+   DAY COUNT
+========================================================= */
+
+.day-count {
+
+    margin-top: 9px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   DASHBOARD TITLE
+========================================================= */
+
+.dashboard-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+}
+
+
+.dashboard-title i {
+
+    color: #a78bfa;
+
+}
+
+
+/* =========================================================
+   DASHBOARD GRID
+========================================================= */
+
+.dashboard-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+/* =========================================================
+   DASHBOARD CARD
+========================================================= */
+
+.dashboard-card {
+
+    padding: 30px;
+
+    min-height: 210px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition: .3s ease;
+
+}
+
+
+.dashboard-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(139,92,246,.25);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.15);
+
+}
+
+
+.dashboard-card > i {
+
+    display: block;
+
+    font-size: 25px;
+
+    color: #a78bfa;
+
+    margin-bottom: 20px;
+
+}
+
+
+.dashboard-card h3 {
+
+    margin-bottom: 8px;
+
+    font-size: 16px;
+
+}
+
+
+.dashboard-card p {
+
+    color:
+        rgba(255,255,255,.45);
+
+    font-size: 12px;
+
+    line-height: 2;
+
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.content-card,
+.messages-card {
+
+    display: block;
+
+    color: white;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+}
+
+
+.card-arrow {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 22px;
+
+    color: #a78bfa;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    transition: .3s ease;
+
+}
+
+
+.content-card:hover .card-arrow,
+.messages-card:hover .card-arrow {
+
+    color: white;
+
+    transform:
+        translateX(-5px);
+
+}
+
+
+.card-arrow i {
+
+    margin: 0 !important;
+
+    font-size: 9px !important;
+
+}
+
+
+/* =========================================================
+   EMPTY ANALYTICS
+========================================================= */
+
+.analytics-empty {
+
+    text-align: center;
+
+    color:
+        rgba(255,255,255,.25);
+
+    padding: 25px;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width: 900px) {
+
+    .analytics-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .dashboard-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media(max-width: 700px) {
+
+    .admin-header {
+
+        padding:
+            0 20px;
+
+    }
+
+
+    .admin-logo {
+
+        font-size: 15px;
+
+    }
+
+
+    .admin-content {
+
+        padding:
+            40px 20px
+            60px;
+
+    }
+
+
+    .analytics-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .dashboard-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .days-list {
+
+        gap: 4px;
+
+    }
+
+
+    .day-bar-box {
+
+        height: 75px;
+
+        padding:
+            0 3px;
+
+    }
+
+
+    .day-name {
+
+        font-size: 8px;
+
+    }
+
+
+    .day-count {
+
+        font-size: 9px;
+
+    }
+
+
+    .weekly-card {
+
+        padding: 18px;
+
+    }
+
+
+    .analytics-header {
+
+        align-items:
+            flex-start;
+
+        gap: 10px;
+
+    }
+
+
+    .analytics-subtitle {
+
+        display: none;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="admin-header">
+
+
+    <div class="admin-logo">
+
+        <span>
+            &lt;/&gt;
+        </span>
+
+        SOROUSH ADMIN
+
+    </div>
+
+
+    <button
+        class="logout-btn"
+        id="logout-btn"
+    >
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        خروج
+
+    </button>
+
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="admin-content">
+
+
+    <!-- =====================================================
+         WELCOME
+    ===================================================== -->
+
+    <div class="welcome">
+
+        <span>
+            ADMIN DASHBOARD
+        </span>
+
+        <h1>
+            خوش آمدید 👋
+        </h1>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ANALYTICS HEADER
+    ===================================================== -->
+
+    <div class="analytics-header">
+
+        <div class="analytics-title">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h2>
+                آمار بازدید سایت
+            </h2>
+
+        </div>
+
+
+        <span class="analytics-subtitle">
+            VISITOR ANALYTICS
+        </span>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ANALYTICS CARDS
+    ===================================================== -->
+
+    <div class="analytics-grid">
+
+
+        <!-- TOTAL -->
+
+        <div class="analytics-card">
+
+            <div class="analytics-icon">
+
+                <i class="fa-solid fa-eye"></i>
+
+            </div>
+
+
+            <div class="analytics-label">
+                بازدید کل
+            </div>
+
+
+            <div
+                class="analytics-value"
+                id="total-views"
+            >
+                0
+            </div>
+
+
+            <div class="analytics-description">
+                تمام بازدیدهای ثبت‌شده
+            </div>
+
+        </div>
+
+
+
+        <!-- UNIQUE -->
+
+        <div class="analytics-card">
+
+            <div class="analytics-icon">
+
+                <i class="fa-solid fa-users"></i>
+
+            </div>
+
+
+            <div class="analytics-label">
+                بازدیدکنندگان یکتا
+            </div>
+
+
+            <div
+                class="analytics-value"
+                id="unique-visitors"
+            >
+                0
+            </div>
+
+
+            <div class="analytics-description">
+                هر مرورگر فقط یک بار
+            </div>
+
+        </div>
+
+
+
+        <!-- ADMIN -->
+
+        <div class="analytics-card">
+
+            <div class="analytics-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+
+            <div class="analytics-label">
+                بازدیدهای خودت
+            </div>
+
+
+            <div
+                class="analytics-value"
+                id="admin-views"
+            >
+                0
+            </div>
+
+
+            <div class="analytics-description">
+                بازدیدهای ثبت‌شده توسط مدیر
+            </div>
+
+        </div>
+
+
+
+        <!-- USERS -->
+
+        <div class="analytics-card">
+
+            <div class="analytics-icon">
+
+                <i class="fa-solid fa-globe"></i>
+
+            </div>
+
+
+            <div class="analytics-label">
+                بازدید کاربران
+            </div>
+
+
+            <div
+                class="analytics-value"
+                id="user-views"
+            >
+                0
+            </div>
+
+
+            <div class="analytics-description">
+                بازدیدهای غیرمدیر
+            </div>
+
+        </div>
+
+
+
+        <!-- TODAY -->
+
+        <div class="analytics-card">
+
+            <div class="analytics-icon">
+
+                <i class="fa-solid fa-calendar-day"></i>
+
+            </div>
+
+
+            <div class="analytics-label">
+                بازدید امروز
+            </div>
+
+
+            <div
+                class="analytics-value"
+                id="today-views"
+            >
+                0
+            </div>
+
+
+            <div class="analytics-description">
+                بازدیدهای ثبت‌شده امروز
+            </div>
+
+        </div>
+
+
+
+        <!-- 7 DAYS -->
+
+        <div class="analytics-card">
+
+            <div class="analytics-icon">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+            </div>
+
+
+            <div class="analytics-label">
+                آمار ۷ روز اخیر
+            </div>
+
+
+            <div
+                class="analytics-value"
+                id="week-views"
+            >
+                0
+            </div>
+
+
+            <div class="analytics-description">
+                مجموع بازدید هفت روز اخیر
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         LIVE STATUS
+    ===================================================== -->
+
+    <div class="live-status">
+
+        <span class="live-dot"></span>
+
+        آمار از LocalStorage خوانده می‌شود
+
+    </div>
+
+
+
+    <!-- =====================================================
+         7 DAYS CHART
+    ===================================================== -->
+
+    <div class="weekly-card">
+
+
+        <div class="weekly-title">
+
+            <h3>
+
+                <i class="fa-solid fa-chart-simple"></i>
+
+                نمودار ۷ روز اخیر
+
+            </h3>
+
+
+            <span>
+                بازدید روزانه
+            </span>
+
+        </div>
+
+
+        <div
+            class="days-list"
+            id="days-list"
+        >
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SITE MANAGEMENT
+    ===================================================== -->
+
+    <h2 class="dashboard-title">
+
+        <i class="fa-solid fa-sliders"></i>
+
+        مدیریت سایت
+
+    </h2>
+
+
+
+    <div class="dashboard-grid">
+
+
+        <!-- PROJECTS -->
+
+        <div class="dashboard-card">
+
+            <i class="fa-solid fa-folder-open"></i>
+
+            <h3>
+                مدیریت پروژه‌ها
+            </h3>
+
+            <p>
+                اضافه کردن، ویرایش و حذف پروژه‌های سایت.
+            </p>
+
+        </div>
+
+
+
+        <!-- CONTENT -->
+
+        <a
+            href="content.html"
+            class="dashboard-card content-card"
+        >
+
+            <i class="fa-solid fa-pen-to-square"></i>
+
+            <h3>
+                ویرایش محتوا
+            </h3>
+
+            <p>
+                مدیریت متن‌ها و اطلاعات بخش‌های مختلف سایت.
+            </p>
+
+
+            <span class="card-arrow">
+
+                ویرایش محتوا
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+            </span>
+
+        </a>
+
+
+
+        <!-- MESSAGES -->
+
+        <a
+            href="messages.html"
+            class="dashboard-card messages-card"
+        >
+
+            <i class="fa-solid fa-envelope"></i>
+
+            <h3>
+                پیام‌ها
+            </h3>
+
+            <p>
+                مشاهده پیام‌های کاربران سایت.
+            </p>
+
+
+            <span class="card-arrow">
+
+                مشاهده پیام‌ها
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+</main>
+
+
+
+<script>
+
+/* =========================================================
+   CHECK LOGIN
+========================================================= */
+
+if (
+    sessionStorage.getItem(
+        "adminLoggedIn"
+    ) !== "true"
+) {
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+/* =========================================================
+   FORMAT NUMBER
+========================================================= */
+
+function formatNumber(number) {
+
+    return Number(
+        number || 0
+    ).toLocaleString("fa-IR");
+
+}
+
+
+/* =========================================================
+   GET LOCAL DATE
+========================================================= */
+
+function getLocalDateKey() {
+
+    const date =
+        new Date();
+
+
+    const year =
+        date.getFullYear();
+
+
+    const month =
+        String(
+            date.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    const day =
+        String(
+            date.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    return (
+        `${year}-${month}-${day}`
+    );
+
+}
+
+
+/* =========================================================
+   LOAD ANALYTICS
+========================================================= */
+
+function loadAnalytics() {
+
+    /*
+     * دریافت اطلاعات
+     */
+
+    let data;
+
+    try {
+
+        data = JSON.parse(
+            localStorage.getItem(
+                "siteAnalytics"
+            ) || "{}"
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Analytics data error:",
+            error
+        );
+
+        data = {};
+
+    }
+
+
+    /*
+     * مقادیر اصلی
+     */
+
+    const totalViews =
+        Number(
+            data.totalViews || 0
+        );
+
+
+    const uniqueVisitors =
+        Number(
+            data.uniqueVisitors || 0
+        );
+
+
+    const adminViews =
+        Number(
+            data.adminViews || 0
+        );
+
+
+    const userViews =
+        Number(
+            data.userViews || 0
+        );
+
+
+    const daily =
+        data.daily || {};
+
+
+    /*
+     * نمایش کارت‌ها
+     */
+
+    document.getElementById(
+        "total-views"
+    ).textContent =
+        formatNumber(
+            totalViews
+        );
+
+
+    document.getElementById(
+        "unique-visitors"
+    ).textContent =
+        formatNumber(
+            uniqueVisitors
+        );
+
+
+    document.getElementById(
+        "admin-views"
+    ).textContent =
+        formatNumber(
+            adminViews
+        );
+
+
+    document.getElementById(
+        "user-views"
+    ).textContent =
+        formatNumber(
+            userViews
+        );
+
+
+    /*
+     * امروز
+     */
+
+    const today =
+        getLocalDateKey();
+
+
+    const todayData =
+        daily[today];
+
+
+    let todayViews = 0;
+
+
+    if (
+        todayData &&
+        typeof todayData === "object"
+    ) {
+
+        todayViews =
+            Number(
+                todayData.total || 0
+            );
+
+    }
+
+
+    document.getElementById(
+        "today-views"
+    ).textContent =
+        formatNumber(
+            todayViews
+        );
+
+
+    /*
+     * =====================================
+     * LAST 7 DAYS
+     * =====================================
+     */
+
+    const dayNames = [
+
+        "یکشنبه",
+
+        "دوشنبه",
+
+        "سه‌شنبه",
+
+        "چهارشنبه",
+
+        "پنجشنبه",
+
+        "جمعه",
+
+        "شنبه"
+
+    ];
+
+
+    const lastSevenDays = [];
+
+
+    let weekViews = 0;
+
+
+    /*
+     * ساخت هفت روز
+     */
+
+    for (
+        let i = 6;
+        i >= 0;
+        i--
+    ) {
+
+        const date =
+            new Date();
+
+
+        date.setDate(
+            date.getDate() - i
+        );
+
+
+        const key =
+            getDateKey(
+                date
+            );
+
+
+        const dayData =
+            daily[key];
+
+
+        let views = 0;
+
+
+        if (
+            dayData &&
+            typeof dayData === "object"
+        ) {
+
+            views =
+                Number(
+                    dayData.total || 0
+                );
+
+        }
+        else if (
+            typeof dayData === "number"
+        ) {
+
+            /*
+             * سازگاری با نسخه قدیمی
+             */
+
+            views =
+                Number(
+                    dayData || 0
+                );
+
+        }
+
+
+        weekViews += views;
+
+
+        lastSevenDays.push({
+
+            name:
+                dayNames[
+                    date.getDay()
+                ],
+
+            date:
+                `${String(
+                    date.getDate()
+                ).padStart(2, "0")}/${String(
+                    date.getMonth() + 1
+                ).padStart(2, "0")}`,
+
+            views:
+                views
+
+        });
+
+    }
+
+
+    /*
+     * نمایش مجموع هفت روز
+     */
+
+    document.getElementById(
+        "week-views"
+    ).textContent =
+        formatNumber(
+            weekViews
+        );
+
+
+    /*
+     * رسم نمودار
+     */
+
+    const daysList =
+        document.getElementById(
+            "days-list"
+        );
+
+
+    daysList.innerHTML = "";
+
+
+    /*
+     * بیشترین مقدار
+     */
+
+    const maxViews =
+        Math.max(
+            ...lastSevenDays.map(
+                day =>
+                    day.views
+            ),
+            1
+        );
+
+
+    /*
+     * ساخت ستون‌ها
+     */
+
+    lastSevenDays.forEach(
+        day => {
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "day-item";
+
+
+            /*
+             * حداقل ارتفاع 5 درصد
+             */
+
+            const height =
+                Math.max(
+                    (
+                        day.views /
+                        maxViews
+                    ) * 100,
+                    5
+                );
+
+
+            item.innerHTML = `
+
+                <div class="day-name">
+                    ${day.name}
+                </div>
+
+                <div class="day-date">
+                    ${day.date}
+                </div>
+
+                <div class="day-bar-box">
+
+                    <div
+                        class="day-bar"
+                        style="height:${height}%"
+                        title="${formatNumber(day.views)} بازدید"
+                    ></div>
+
+                </div>
+
+                <div class="day-count">
+                    ${formatNumber(day.views)}
+                </div>
+
+            `;
+
+
+            daysList.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   DATE KEY
+========================================================= */
+
+function getDateKey(date) {
+
+    const year =
+        date.getFullYear();
+
+
+    const month =
+        String(
+            date.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    const day =
+        String(
+            date.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    return (
+        `${year}-${month}-${day}`
+    );
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+document
+    .getElementById(
+        "logout-btn"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            sessionStorage.removeItem(
+                "adminLoggedIn"
+            );
+
+
+            window.location.href =
+                "login.html";
+
+        }
+    );
+
+
+/* =========================================================
+   START
+========================================================= */
+
+loadAnalytics();
+
+
+/* =========================================================
+   AUTO REFRESH
+   هر 5 ثانیه آمار دوباره خوانده می‌شود.
+========================================================= */
+
+setInterval(
+    loadAnalytics,
+    5000
+);
+
+</script>
+
+
+</body>
+
+</html>

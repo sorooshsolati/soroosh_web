@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ویرایش محتوا | SOROUSH</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family: "Vazirmatn", sans-serif;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(139,92,246,0.15),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(59,130,246,0.10),
+                    transparent 30%
+                ),
+                #05060b;
+        }
+
+
+        .topbar {
+
+            height: 80px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 40px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.08);
+
+            background:
+                rgba(255,255,255,0.025);
+
+            backdrop-filter: blur(20px);
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 20px;
+
+            font-weight: 900;
+        }
+
+
+        .logo-icon {
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            color: #a78bfa;
+
+            background:
+                rgba(139,92,246,0.15);
+
+            border:
+                1px solid rgba(139,92,246,0.20);
+        }
+
+
+        .back-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 10px 16px;
+
+            border-radius: 10px;
+
+            color: #ddd;
+
+            text-decoration: none;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            transition: 0.3s ease;
+        }
+
+
+        .back-btn:hover {
+
+            background:
+                rgba(139,92,246,0.15);
+
+            color: white;
+
+            transform: translateX(3px);
+        }
+
+
+        .container {
+
+            width: min(100% - 40px, 1000px);
+
+            margin: auto;
+        }
+
+
+        .content {
+
+            padding: 60px 0;
+        }
+
+
+        .page-title {
+
+            margin-bottom: 35px;
+        }
+
+
+        .page-title span {
+
+            display: block;
+
+            color: #a78bfa;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .page-title h1 {
+
+            font-size: 32px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .page-title p {
+
+            color:
+                rgba(255,255,255,0.45);
+
+            font-size: 13px;
+        }
+
+
+        .editor-card {
+
+            padding: 30px;
+
+            border-radius: 24px;
+
+            background:
+                rgba(255,255,255,0.045);
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.25);
+        }
+
+
+        .editor-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .editor-icon {
+
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 15px;
+
+            color: #a78bfa;
+
+            background:
+                rgba(139,92,246,0.12);
+
+            font-size: 20px;
+        }
+
+
+        .editor-header h2 {
+
+            font-size: 18px;
+
+            margin-bottom: 4px;
+        }
+
+
+        .editor-header p {
+
+            color:
+                rgba(255,255,255,0.40);
+
+            font-size: 11px;
+        }
+
+
+        .field {
+
+            margin-bottom: 20px;
+        }
+
+
+        .field label {
+
+            display: block;
+
+            margin-bottom: 9px;
+
+            color: rgba(255,255,255,0.75);
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+
+        .field input {
+
+            width: 100%;
+
+            height: 52px;
+
+            padding: 0 16px;
+
+            border-radius: 12px;
+
+            outline: none;
+
+            color: white;
+
+            font-family: inherit;
+
+            background:
+                rgba(0,0,0,0.25);
+
+            border:
+                1px solid rgba(255,255,255,0.10);
+
+            transition: 0.3s ease;
+        }
+
+
+        .field input:focus {
+
+            border-color:
+                rgba(167,139,250,0.65);
+
+            box-shadow:
+                0 0 0 4px rgba(139,92,246,0.08);
+        }
+
+
+        .hint {
+
+            margin-top: 8px;
+
+            color:
+                rgba(255,255,255,0.30);
+
+            font-size: 10px;
+        }
+
+
+        .buttons {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 30px;
+        }
+
+
+        .btn {
+
+            border: none;
+
+            border-radius: 12px;
+
+            padding: 13px 20px;
+
+            font-family: inherit;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .save-btn {
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #4f46e5
+                );
+
+            box-shadow:
+                0 10px 30px rgba(124,58,237,0.20);
+        }
+
+
+        .save-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 15px 35px rgba(124,58,237,0.30);
+        }
+
+
+        .reset-btn {
+
+            color: #ddd;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+        }
+
+
+        .reset-btn:hover {
+
+            background:
+                rgba(255,255,255,0.10);
+        }
+
+
+        .message {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 13px 16px;
+
+            border-radius: 12px;
+
+            color: #86efac;
+
+            background:
+                rgba(34,197,94,0.08);
+
+            border:
+                1px solid rgba(34,197,94,0.15);
+
+            font-size: 12px;
+        }
+
+
+        .message.show {
+
+            display: block;
+        }
+
+
+        @media(max-width: 700px) {
+
+            .topbar {
+
+                padding: 0 20px;
+            }
+
+            .container {
+
+                width: min(100% - 30px, 1000px);
+            }
+
+            .content {
+
+                padding: 40px 0;
+            }
+
+            .page-title h1 {
+
+                font-size: 26px;
+            }
+
+            .editor-card {
+
+                padding: 20px;
+            }
+
+            .buttons {
+
+                flex-direction: column;
+            }
+
+            .btn {
+
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+    <div class="logo">
+
+        <span class="logo-icon">
+            &lt;/&gt;
+        </span>
+
+        SOROUSH ADMIN
+
+    </div>
+
+
+    <a
+        href="admin.html"
+        class="back-btn"
+    >
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+        بازگشت به پنل
+
+    </a>
+
+</header>
+
+
+
+<main class="content">
+
+    <div class="container">
+
+
+        <div class="page-title">
+
+            <span>
+                CONTENT MANAGER
+            </span>
+
+            <h1>
+                ویرایش محتوای سایت
+            </h1>
+
+            <p>
+                از این قسمت می‌توانی متن‌های سایت را مدیریت کنی.
+            </p>
+
+        </div>
+
+
+
+        <div class="editor-card">
+
+
+            <div class="editor-header">
+
+                <div class="editor-icon">
+
+                    <i class="fa-solid fa-heading"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>
+                        عنوان اصلی صفحه
+                    </h2>
+
+                    <p>
+                        متن بخش Hero سایت
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label for="hero-before">
+                    متن قبل از کلمه خلاقیت
+                </label>
+
+                <input
+                    type="text"
+                    id="hero-before"
+                    placeholder="مثلاً: بیاید تا باهم"
+                >
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label for="hero-highlight">
+                    کلمه اصلی
+                </label>
+
+                <input
+                    type="text"
+                    id="hero-highlight"
+                    placeholder="مثلاً: خلاقیت"
+                >
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label for="hero-after">
+                    متن بعد از کلمه اصلی
+                </label>
+
+                <input
+                    type="text"
+                    id="hero-after"
+                    placeholder="مثلاً: بخرج بدیم."
+                >
+
+                <div class="hint">
+                    این سه قسمت کنار هم عنوان اصلی سایت را می‌سازند.
+                </div>
+
+            </div>
+
+
+
+            <div class="buttons">
+
+                <button
+                    class="btn save-btn"
+                    id="save-btn"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    ذخیره تغییرات
+
+                </button>
+
+
+                <button
+                    class="btn reset-btn"
+                    id="reset-btn"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-rotate-left"></i>
+
+                    بازگردانی
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="message"
+                id="message"
+            >
+                تغییرات با موفقیت ذخیره شد ✓
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<script>
+
+    /* =========================================
+       بررسی ورود ادمین
+    ========================================= */
+
+    if (
+        sessionStorage.getItem("adminLoggedIn")
+        !== "true"
+    ) {
+
+        window.location.href = "login.html";
+
+    }
+
+
+
+    /* =========================================
+       مقادیر پیش فرض
+    ========================================= */
+
+    const defaultContent = {
+
+        heroBefore: "بیاید تا باهم",
+
+        heroHighlight: "خلاقیت",
+
+        heroAfter: "بخرج بدیم."
+
+    };
+
+
+
+    /* =========================================
+       گرفتن اطلاعات ذخیره شده
+    ========================================= */
+
+    let content = JSON.parse(
+        localStorage.getItem("siteContent")
+        || "{}"
+    );
+
+
+
+    /* =========================================
+       نمایش اطلاعات فعلی
+    ========================================= */
+
+    document.getElementById("hero-before").value =
+        content.heroBefore
+        || defaultContent.heroBefore;
+
+
+    document.getElementById("hero-highlight").value =
+        content.heroHighlight
+        || defaultContent.heroHighlight;
+
+
+    document.getElementById("hero-after").value =
+        content.heroAfter
+        || defaultContent.heroAfter;
+
+
+
+    /* =========================================
+       ذخیره
+    ========================================= */
+
+    document
+        .getElementById("save-btn")
+        .addEventListener("click", () => {
+
+
+            const newContent = {
+
+                heroBefore:
+                    document
+                        .getElementById("hero-before")
+                        .value
+                        .trim(),
+
+                heroHighlight:
+                    document
+                        .getElementById("hero-highlight")
+                        .value
+                        .trim(),
+
+                heroAfter:
+                    document
+                        .getElementById("hero-after")
+                        .value
+                        .trim()
+
+            };
+
+
+            localStorage.setItem(
+                "siteContent",
+                JSON.stringify(newContent)
+            );
+
+
+            const message =
+                document.getElementById("message");
+
+
+            message.classList.add("show");
+
+
+            setTimeout(() => {
+
+                message.classList.remove("show");
+
+            }, 2500);
+
+        });
+
+
+
+    /* =========================================
+       بازگردانی
+    ========================================= */
+
+    document
+        .getElementById("reset-btn")
+        .addEventListener("click", () => {
+
+
+            document
+                .getElementById("hero-before")
+                .value =
+                defaultContent.heroBefore;
+
+
+            document
+                .getElementById("hero-highlight")
+                .value =
+                defaultContent.heroHighlight;
+
+
+            document
+                .getElementById("hero-after")
+                .value =
+                defaultContent.heroAfter;
+
+
+            localStorage.removeItem(
+                "siteContent"
+            );
+
+
+            const message =
+                document.getElementById("message");
+
+
+            message.textContent =
+                "محتوا به حالت اولیه بازگردانده شد ✓";
+
+
+            message.classList.add("show");
+
+
+            setTimeout(() => {
+
+                message.classList.remove("show");
+
+            }, 2500);
+
+        });
+
+</script>
+
+
+</body>
+
+</html>
