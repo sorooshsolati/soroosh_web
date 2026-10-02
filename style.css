@@ -2883,4 +2883,28 @@ section {
     justify-content: center;
     
 }
+.reg {
+    background-color: #5c42e8;
+    width: 15%;
+    margin: 20px auto;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+}
 
+/* موبایل */
+@media (max-width: 600px) {
+    .reg {
+        width: 80%;
+        margin: 15px auto;
+        padding: 8px 12px;
+    }
+
+    .reg p {
+        font-size: 14px;
+        margin: 0;
+        text-align: center;
+    }
+}
